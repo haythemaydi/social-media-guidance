@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "AAGA,AACI,UADM,CACN,EAAE,CAAC;EACC,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,UAAU;EACvB,WAAW,EAAE,GAAG;EAChB,SAAS,EAAE,IAAI;EACf,KAAK,ECRK,OAAO;CDSpB;;AAGL,AAAA,kBAAkB,CAAC;EACf,aAAa,EAAE,IAAI;EACnB,KAAK,EAAE,GAAG;CAQb;;AAVD,AAGI,kBAHc,CAGd,EAAE,CAAC;EACC,UAAU,EAAE,MAAM;EAClB,WAAW,EAAE,GAAG;EAChB,WAAW,EAAE,MAAM;EACnB,cAAc,EAAE,MAAM;EACtB,KAAK,ECfA,OAAO;CDgBf",
+    "sources": [
+        "introText.scss",
+        "../common/colors.scss"
+    ],
+    "names": [],
+    "file": "introText.css"
+}

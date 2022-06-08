@@ -1,0 +1,10 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "notFound.scss",
+        "../../components/common/colors.scss"
+    ],
+    "names": [],
+    "file": "notFound.css"
+}

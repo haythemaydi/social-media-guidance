@@ -1,0 +1,58 @@
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  font-family: sans-serif;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  height: 100vh;
+  overflow: hidden;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#dfe9f3), to(white));
+  background-image: linear-gradient(to top, #dfe9f3 0%, white 100%);
+  font-size: 1.6rem;
+}
+
+a {
+  text-decoration: none;
+  color: #34475C;
+}
+
+svg {
+  cursor: pointer;
+  color: #F47060;
+}
+
+ul, li {
+  list-style: none;
+}
+
+button, a {
+  cursor: pointer;
+}
+
+h1, h2, h3, h4 {
+  margin-bottom: 10px;
+  font-family: roboto;
+}
+
+*::-webkit-scrollbar {
+  width: 5px;
+}
+
+*::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+*::-webkit-scrollbar-thumb {
+  background-color: #F47060;
+  border-radius: 20px;
+  border: transparent;
+  padding: 0.5rem;
+}
+/*# sourceMappingURL=App.css.map */

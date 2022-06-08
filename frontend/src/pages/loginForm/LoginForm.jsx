@@ -1,13 +1,30 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
+import axios from "axios";
 import Joi from "joi-browser";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authAction } from "../../app/store";
 import IntroText from "../../components/intro-text/IntroText";
 import Input from "../../components/common/Input";
 import CreateAccount from "../../components/common/CreateAccount";
 import "./loginForm.scss";
+//import { useCookies } from "react-cookie";
 
 const LoginForm = () => {
+  //const userID = localStorage.setItem("userId", data.user._id);
+  //const [cookies, setCookie, removeCookie] = useCookies([userID]);
+  const dispatch = useDispatch();
+  function deleteAllCookies() {
+    var cookies = document.cookie.split(";");
+
+    for (var i = 0; i < cookies.length; i++) {
+      var cookie = cookies[i];
+      var eqPos = cookie.indexOf("=");
+      var name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+      document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+    }
+  }
   const navigate = useNavigate();
   const [data, setData] = useState({
     email: "",
@@ -22,6 +39,17 @@ const LoginForm = () => {
 
   const { email, password } = data;
   const options = { abortEarly: false };
+  const sendRequest = async () => {
+    const res = await axios
+      .post("http://localhost:5000/api/login", {
+        email: email,
+        password: password,
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    console.log(data);
+    return data;
+  };
 
   const validate = () => {
     const { error } = Joi.validate(data, schema, options);
@@ -34,11 +62,19 @@ const LoginForm = () => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-
+    //cookies.remove(userID);
+    deleteAllCookies();
     const errors = validate();
     setErrors(errors || {});
     if (errors) return;
     //call the server and navigate the use to different pages
+
+    sendRequest()
+      .then((data) =>
+        localStorage.setItem("userInf", JSON.stringify(data.user))
+      )
+      .then(dispatch(authAction.login()))
+      .then(() => navigate("/user"));
     console.log("Submitted");
   };
 

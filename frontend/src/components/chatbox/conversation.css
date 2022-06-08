@@ -1,0 +1,37 @@
+.conversation {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 10px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+.conversation:hover {
+  background-color: #f5f3f3;
+}
+
+.conversation > img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  margin-right: 1.2rem;
+}
+
+.conversation__name {
+  font-weight: bold;
+}
+
+.noConversationText {
+  position: absolute;
+  top: 10%;
+  font-size: 50px;
+  color: #e0dcdc;
+  cursor: default;
+}
+/*# sourceMappingURL=conversation.css.map */

@@ -1,0 +1,94 @@
+.register-center {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.register-border {
+  border: 1px solid lightgray;
+  border-radius: 7px;
+  width: 450px;
+  padding: 1.5rem;
+}
+
+.sub-form-login {
+  border: 1px solid lightgray;
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  width: 450px;
+  text-align: center;
+  border-radius: 7px;
+  color: #34475C;
+}
+
+.sub-form-login span {
+  color: #F47060;
+  cursor: pointer;
+}
+
+.btn-primary {
+  display: block;
+  margin: 3rem auto;
+}
+
+.form-group {
+  width: 100%;
+  text-align: center;
+}
+
+.form-group select {
+  width: 90%;
+  margin: auto;
+  padding: 1.4rem;
+  border: 1px solid lightgray;
+}
+
+.register-logo, .register-text {
+  text-align: center;
+}
+
+.register-logo {
+  padding-top: 1.5rem;
+  font-family: MonteCarlo;
+}
+
+.register-text {
+  color: #34475C;
+  margin-bottom: 1.8rem;
+}
+
+.social-media-icons {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.social-media-icons svg {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+@media (max-width: 490px) {
+  .register-border {
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    width: 350px;
+  }
+  .register-border {
+    border: 1px solid lightgray;
+    border-radius: 7px;
+    width: 350px;
+  }
+  .sub-form-login {
+    width: 350px;
+  }
+}
+/*# sourceMappingURL=register.css.map */

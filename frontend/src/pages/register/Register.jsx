@@ -2,18 +2,23 @@ import { useState } from "react";
 import Joi from "joi-browser";
 import { useNavigate } from "react-router-dom";
 import { motion } from "framer-motion";
+import axios from "axios";
 import Input from "../../components/common/Input";
 import DropDownBoxes from "../../components/common/DropDownBoxes";
 import SocialMediaIcons from "../../components/common/SocialMediaIcons";
 import GoBackToLogin from "../../components/common/GoBackToLogin";
 import "./register.scss";
+import FileBase from "react-file-base64";
 
 const Register = () => {
+  const history = useNavigate();
+
   const [data, setData] = useState({
     username: "",
     selectedRole: "",
     email: "",
     password: "",
+    selectedFile: "",
   });
   const [errors, setErrors] = useState({});
 
@@ -22,9 +27,10 @@ const Register = () => {
     email: Joi.string().email().required().label("Email"),
     password: Joi.string().required().min(5).max(10).label("Password"),
     selectedRole: Joi.string().required(),
+    selectedFile: Joi.string().required(),
   };
 
-  const { username, selectedRole, email, password } = data;
+  const { username, selectedRole, email, password, selectedFile } = data;
   const options = { abortEarly: false };
 
   const validate = () => {
@@ -52,6 +58,19 @@ const Register = () => {
     details[input.name] = input.value;
     setData(details, errors);
   };
+  const sendRequest = async () => {
+    const res = await axios
+      .post("http://localhost:5000/api/signup", {
+        username: username,
+        email: email,
+        password: password,
+        selectedRole: selectedRole,
+        selectedFile: selectedFile,
+      })
+      .catch((err) => console.log(err));
+    const data = await res.data;
+    return data;
+  };
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
@@ -60,6 +79,9 @@ const Register = () => {
     setErrors(errors || {});
     if (errors) return;
     //call the server and navigate the use to different pages
+    sendRequest()
+      .then((data) => localStorage.setItem("userId", data.user._id))
+      .then(() => history("/"));
     console.log("Submitted");
   };
 
@@ -98,12 +120,18 @@ const Register = () => {
             error={errors.email}
             onChange={handleChange}
           />
+          <FileBase
+            type="file"
+            multiple={false}
+            onDone={({ base64 }) => setData({ ...data, selectedFile: base64 })}
+          />
           <Input
             name="password"
             value={password}
             error={errors.password}
             onChange={handleChange}
           />
+
           <button disabled={validate()} className="btn btn-primary">
             Register
           </button>
