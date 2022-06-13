@@ -5,7 +5,7 @@ const newComers = [
     name: "Sonia Wahbi",
     role: "newcomer",
     city: "Berlin",
-    text: "Hallo every one! I am new in Berlin. I am looking for help to make the anmeldung at Bürgeramt. I will appreciate your help and i can also pay a fee if its your wish. feel free to contact me",
+    text: "Hallo every one! I am new in Berlin. I am looking for help to make the anmelHallo every one! I am new in Berlin. I am looking for help to make the anmeldung at Bürgeramt. I will appreciate your help and i can also pay a fee if its your wish. feel free to contact medung at Bürgeramt. I will appreciate your help and i can also pay a fee if its your wish. feel free to contact me",
   },
   {
     _id: "5b21ca3eeb7f6fbccd471816",
